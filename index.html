@@ -1,17 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Document</title>
+    <title>viaCep</title>
 </head>
 <body>
     <header class="navbar">
         <h2 class="logo">ViaCep</h2>
-        <h3 class="contato">contato</h3>
+        <div>contato</div>
     </header>
 
+   <main>
+    <section id="form-section">
+        <div class="form-add">
+            <form class="address-form">
+                <label for="cep">cep:</label>
+                <input name="cep" type="text">
+                <label for="numero">numero:</label>
+                <input name="numero" type="text">
+                <label for="cidade">cidade:</label>
+                <input name="cidade" type="text">
+                <label for="rua">rua:</label>
+                <input name="rua" type="text">
+                <button type="submit"></button>
+            </form>
+        </div>
+    </section>
+    <section id="list-section">
+        <div class="address-saved">
+            <ul>
+                <li class="addr-li">
+                    <h3>cidade</h3>
+                    <p>rua xxxx x xxxx</p>
+                    <p>cep 33300033</p>
+                </li>
+                <li class="addr-li">
+                    <h3>cidade</h3>
+                    <p>rua xxxx x xxxx</p>
+                    <p>cep 33300033</p>
+                </li>
+            </ul>
+        </div>
+    
+    </section>
+   </main>
     <script src="index.js"></script>
 </body>
 </html>

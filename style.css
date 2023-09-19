@@ -14,3 +14,35 @@
     justify-content: space-around;
     font-family: 'Poppins', sans-serif;
 }
+.address-saved{
+    background-color: antiquewhite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.address-saved li{
+    border-radius: 10px;
+    margin: 10px;
+    width: 900px;
+    padding: 10px;
+    list-style: none;
+    background-color: aquamarine;
+}
+.address-form{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+.form-add{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.address-form input{
+    height: 40px;
+    margin: 5dvb;
+    border-radius: 10px;
+}
