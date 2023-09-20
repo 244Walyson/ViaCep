@@ -1,5 +1,6 @@
+import * as Address from './Address.js'
 
-function state(){
+function State(){
     this.btnSave = null;
     this.btnClear = null;
 
@@ -10,8 +11,10 @@ function state(){
 
     this.errorCep = null;
     this.errorNumber = null;
+
+    this.address = new Address();
 }
-const state = new state()
+const state = new State()
 
 export function init(){
 
@@ -23,6 +26,8 @@ export function init(){
    state.btnSave = document.forms['form-address'].btnSave;
    state.btnClear = document.forms['form-address'].btnClear;
 
-   state.errorCep = document.querySelector('[data.error="cep"]')
-   state.errorCep = document.querySelector('[data.error="number"]')
+   state.errorCep = document.querySelector('[data-error="cep"]')
+   state.errorNumber = document.querySelector('[data-error="number"]')
+
+   console.log(state)
 }
