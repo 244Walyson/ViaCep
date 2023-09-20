@@ -1,51 +1,60 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
     <title>viaCep</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="navbar">
-        <h2 class="logo">ViaCep</h2>
-        <div>contato</div>
-    </header>
 
-   <main>
-    <section id="form-section">
-        <div class="form-add">
-            <form class="address-form">
-                <label for="cep">cep:</label>
-                <input name="cep" type="text">
-                <label for="numero">numero:</label>
-                <input name="numero" type="text">
-                <label for="cidade">cidade:</label>
-                <input name="cidade" type="text">
-                <label for="rua">rua:</label>
-                <input name="rua" type="text">
-                <button type="submit"></button>
-            </form>
-        </div>
-    </section>
-    <section id="list-section">
-        <div class="address-saved">
-            <ul>
-                <li class="addr-li">
-                    <h3>cidade</h3>
-                    <p>rua xxxx x xxxx</p>
-                    <p>cep 33300033</p>
-                </li>
-                <li class="addr-li">
-                    <h3>cidade</h3>
-                    <p>rua xxxx x xxxx</p>
-                    <p>cep 33300033</p>
-                </li>
-            </ul>
-        </div>
-    
-    </section>
-   </main>
-    <script src="index.js"></script>
+    <header class="navbar">
+        <h1>ViaCep</h1>
+        <p>contato</p>
+    </header>
+    <main>
+        <section id="form-add">
+            <div class="form-cad">
+                <form>
+                    <div class="field-cad">
+                        <label for="cep"></label>
+                        <input type="text" name="cep" placeholder="cep">
+                        <div class="req"><p>campo requerido</p></div>
+                    </div>
+                    <div class="field-cad">
+                        <label for="street"></label>
+                        <input disabled type="text" name="street" placeholder="logradouro">
+                    </div>
+                    <div class="field-cad">
+                        <label for="number"></label>
+                        <input type="text" name="number" placeholder="numero">
+                        <div class="req"><p>campo requerido</p></div>
+                    </div>
+                    <div class="field-cad">
+                        <label for="city"></label>
+                        <input disabled type="text" name="city" placeholder="cidade">
+                    </div>
+                    <div class="field-button">
+                        <button type="submit">salvar</button>
+                        <button>limpar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section>
+            <div class="list-address">
+                <div class="address">
+                    <h1>cidade</h1>
+                    <p>rua xxxx</p>
+                    <p>cep xxxxx</p>
+                </div>
+                <div class="address">
+                    <h1>cidade</h1>
+                    <p>rua xxxx</p>
+                    <p>cep xxxxx</p>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
