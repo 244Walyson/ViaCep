@@ -15,11 +15,11 @@
     <main>
         <section id="form-add">
             <div class="form-cad">
-                <form>
+                <form name="form-address">
                     <div class="field-cad">
                         <label for="cep"></label>
                         <input type="text" name="cep" placeholder="cep">
-                        <div class="req"><p>campo requerido</p></div>
+                        <div class="req" data.error="cep"><p>campo requerido</p></div>
                     </div>
                     <div class="field-cad">
                         <label for="street"></label>
@@ -28,15 +28,15 @@
                     <div class="field-cad">
                         <label for="number"></label>
                         <input type="text" name="number" placeholder="numero">
-                        <div class="req"><p>campo requerido</p></div>
+                        <div class="req" data.error="number"><p>campo requerido</p></div>
                     </div>
                     <div class="field-cad">
                         <label for="city"></label>
                         <input disabled type="text" name="city" placeholder="cidade">
                     </div>
                     <div class="field-button">
-                        <button type="submit">salvar</button>
-                        <button>limpar</button>
+                        <button name="btnSave" type="submit">salvar</button>
+                        <button name="btnClear">limpar</button>
                     </div>
                 </form>
             </div>
@@ -56,5 +56,6 @@
             </div>
         </section>
     </main>
+    <script type="module" src="index.js"></script>
 </body>
 </html>
