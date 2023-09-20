@@ -32,38 +32,46 @@ export function init(){
    state.errorCep = document.querySelector('[data-error="cep"]')
    state.errorNumber = document.querySelector('[data-error="number"]')
 
-    state.inputNumber.addEventListener('change', handleInputNumber)
-
     state.btnClear.addEventListener('click', handleClearClick)
     state.btnSave.addEventListener('click', handlebtnSaveCilck)
     
     state.inputCep.addEventListener('change', handleInputCepChange)
+    state.inputNumber.addEventListener('keyup', handleInputNumber)
     console.log(state)
 }
 async function handlebtnSaveCilck(event){
-    
+    event.preventDefault()
+    console.log(state.address)
 }
 
 async function handleInputCepChange(event){
     event.preventDefault()
     try{
         const cep = event.target.value;
-    const url = `https://viacep.com.br/ws/${cep}/json/`
-    const data = await getJson(url)
-    console.log(data)
+        const url = `https://viacep.com.br/ws/${cep}/json/`
+        const data = await getJson(url)
+        const address = new Address(data.cep, data.logradouro, null, data.localidade)
+        state.address = address;
+        state.inputCep.value = address.cep
+        state.inputCity.value = address.city;
+        state.inputStreet.value = address.street;
+        setFormError("cep", "")
+        state.inputNumber.focus()
+        console.log(address)
     } catch (e){
         setFormError("cep", "campo invalido")
     }
 }
 
+
 function handleInputNumber(event){
-    console.log("xxx")
-    if(event.target.value == " "){
-        setFormError("number", "campo requerido")
+    if(event.target.value == ""){
+        setFormError("number", "cep requerido")
     }
-    else(
+    else{
+        state.address.number = event.target.value
         setFormError("number", "")
-    )
+    }
 }
 
 function handleClearClick(event){
@@ -86,6 +94,5 @@ function clearForm(){
 
 function setFormError(key, value){
     const element = document.querySelector(`[data-error="${key}"]`);    
-    console.log(element)
     element.innerHTML = value;
 }
