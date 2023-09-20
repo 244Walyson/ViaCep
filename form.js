@@ -1,4 +1,5 @@
 import { Address } from './Address.js'
+import { getJson } from './request.js';
 
 function State(){
     this.address = new Address()
@@ -34,7 +35,25 @@ export function init(){
     state.inputNumber.addEventListener('change', handleInputNumber)
 
     state.btnClear.addEventListener('click', handleClearClick)
-   console.log(state)
+    state.btnSave.addEventListener('click', handlebtnSaveCilck)
+    
+    state.inputCep.addEventListener('change', handleInputCepChange)
+    console.log(state)
+}
+async function handlebtnSaveCilck(event){
+    
+}
+
+async function handleInputCepChange(event){
+    event.preventDefault()
+    try{
+        const cep = event.target.value;
+    const url = `https://viacep.com.br/ws/${cep}/json/`
+    const data = await getJson(url)
+    console.log(data)
+    } catch (e){
+        setFormError("cep", "campo invalido")
+    }
 }
 
 function handleInputNumber(event){
