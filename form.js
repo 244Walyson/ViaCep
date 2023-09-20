@@ -1,6 +1,8 @@
-import * as Address from './Address.js'
+import { Address } from './Address.js'
 
 function State(){
+    this.address = new Address()
+
     this.btnSave = null;
     this.btnClear = null;
 
@@ -12,8 +14,8 @@ function State(){
     this.errorCep = null;
     this.errorNumber = null;
 
-    this.address = new Address();
 }
+
 const state = new State()
 
 export function init(){
@@ -29,5 +31,42 @@ export function init(){
    state.errorCep = document.querySelector('[data-error="cep"]')
    state.errorNumber = document.querySelector('[data-error="number"]')
 
+    state.inputNumber.addEventListener('change', handleInputNumber)
+
+    state.btnClear.addEventListener('click', handleClearClick)
    console.log(state)
+}
+
+function handleInputNumber(event){
+    console.log("xxx")
+    if(event.target.value == " "){
+        setFormError("number", "campo requerido")
+    }
+    else(
+        setFormError("number", "")
+    )
+}
+
+function handleClearClick(event){
+    event.preventDefault();
+
+    clearForm();
+}
+function clearForm(){
+
+    state.inputCep.value = "";
+    state.inputNumber.value = "";
+    state.inputCity.value = "";
+    state.inputStreet.value = "";
+
+    setFormError("cep", "")
+    setFormError("number", "")
+
+    state.inputCep.focus()
+}
+
+function setFormError(key, value){
+    const element = document.querySelector(`[data-error="${key}"]`);    
+    console.log(element)
+    element.innerHTML = value;
 }
