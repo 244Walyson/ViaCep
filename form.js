@@ -46,9 +46,9 @@ async function handlebtnSaveCilck(event){
     console.log(errors)
     const keys = Object.keys(errors)
     if(keys.length > 0){
-        for(let i = 0; i < keys.length; i++){
-            console.log(setFormError(keys[i], errors[keys[i]]))
-        }
+       keys.forEach((x)=>{
+        setFormError(x, errors[x])
+       })
     }
     else{
         list.addCard(state.address)
