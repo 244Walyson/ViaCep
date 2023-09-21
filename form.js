@@ -42,8 +42,18 @@ export function init(){
 }
 async function handlebtnSaveCilck(event){
     event.preventDefault()
-    list.addCard(state.address)
-    console.log(state.address)
+    const errors = getErrors(state.address)
+    console.log(errors)
+    const keys = Object.keys(errors)
+    if(keys.length > 0){
+        for(let i = 0; i < keys.length; i++){
+            console.log(setFormError(keys[i], errors[keys[i]]))
+        }
+    }
+    else{
+        list.addCard(state.address)
+        clearForm()
+    }
 }
 
 async function handleInputCepChange(event){
@@ -92,9 +102,23 @@ function clearForm(){
     setFormError("number", "")
 
     state.inputCep.focus()
+
+    state.address = new Address()
 }
 
 function setFormError(key, value){
     const element = document.querySelector(`[data-error="${key}"]`);    
     element.innerHTML = value;
+}
+
+function getErrors(address){
+    const errors = {}
+
+    if(!address.cep || address.cep == ""){
+        errors.cep = "campo requerido"
+    }
+    if(!address.number || address.number == ""){
+        errors.number = "campo requerido"
+    }
+    return errors
 }
