@@ -1,5 +1,6 @@
-import { Address } from './Address.js'
+import { Address } from './Address.js';
 import { getJson } from './request.js';
+import * as list from './list.js'
 
 function State(){
     this.address = new Address()
@@ -41,6 +42,7 @@ export function init(){
 }
 async function handlebtnSaveCilck(event){
     event.preventDefault()
+    list.addCard(state.address)
     console.log(state.address)
 }
 
