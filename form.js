@@ -40,7 +40,7 @@ export function init(){
     state.inputNumber.addEventListener('keyup', handleInputNumber)
     console.log(state)
 }
-async function handlebtnSaveCilck(event){
+function handlebtnSaveCilck(event){
     event.preventDefault()
     const errors = getErrors(state.address)
     console.log(errors)

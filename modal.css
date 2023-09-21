@@ -1,37 +1,40 @@
-.modal-container {
-    position: fixed;
+.modal-container{
     top: 0;
     left: 0;
-
-    padding: 20px;
-
-    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
     height: 100vh;
     width: 100%;
     z-index: 1;
-
     display: none;
+    background-color: rgba(2, 2, 2, 0.649);
 }
-
-.modal-container.active {
+.modal-container.active{
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-}
-
-.modal-box {
-    width: 100%;
-    max-width: 480px;
-    background-color: #444;
-    padding: 20px;
-    border-radius: 10px;
-    border: 10px solid #aaa;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.modal-content {
     color: #fff;
-    margin-bottom: 40px;
+    font-size: 40px;
+}
+
+#contact{
+    cursor: pointer;
+}
+.btn-fechar{
+    width: 100px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    height: 30px;
+}
+.btn-fechar:hover{
+    cursor: pointer;
+    transform: scale(1.01);
+}
+
+.cont{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
