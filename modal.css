@@ -33,7 +33,10 @@
 }
 
 .cont{
+    background-color: rgba(6, 7, 7, 0.977);
     flex-direction: column;
+    padding: 40px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;

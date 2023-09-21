@@ -13,6 +13,7 @@ export function init(){
 
     state.btnClose.addEventListener('click', handleBtnCloseCilck)
     state.btnOpen.addEventListener('click', handleContactLinkClick)
+    state.container.addEventListener('click', hanldeContainerClick)
 }
 
 export function showModal(){
@@ -30,4 +31,10 @@ function handleBtnCloseCilck(event){
 function handleContactLinkClick(event){
     event.preventDefault()
     showModal()
+}
+function hanldeContainerClick(event){
+    event.preventDefault()
+    if(this == event.target){
+        handleBtnCloseCilck(event)
+    }
 }
